@@ -44,8 +44,10 @@
 
 int morseInPin = 1;      
 int morseOutPin = 0;
-char inBuff[] =  "hello world hello --";
-char outBuff[] = "hello world hello / ";
+                //          1         2  
+                //0123456789012345678901234 
+char inBuff[25] =  {0};
+char outBuff[25] = {0};
 byte inPtr = 0;
 byte outPtr = 0;
 
@@ -80,7 +82,7 @@ void loop()
   if (((long)millis() - (long)NextUpdate) > 0) // if current millis() time minus nestupdate time is bigger then 0
   {
     NextUpdate = millis() + 120000;        // nest update in 120 000 milliseconds from now
-    outBuff[0] = 'hello world hello yo/';  // a NEW message
+    strcpy(outBuff, "hello world hello yo/////");     // a NEW message
     outPtr = 0;                            // outPtr reset to 0
     Sending = true;                        // ready to send
   }
